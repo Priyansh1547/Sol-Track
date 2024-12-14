@@ -8,6 +8,16 @@ Sol-Track is a web app that allows you to view your transactions in a simple and
 - Connect your wallet and you are good to go
 - View your recent transactions in Solana blockchain
 
+## Images
+
+![image](https://github.com/user-attachments/assets/d53120f5-7060-4510-82c9-1235a6e8ffdc)
+
+![image](https://github.com/user-attachments/assets/77d20b5d-07c3-4cae-81da-4d38b56143c9)
+
+
+![image](https://github.com/user-attachments/assets/cd4e23ee-b6a7-4914-b81c-d9afcb6fba78)
+
+
 
 ## Getting Started
 
