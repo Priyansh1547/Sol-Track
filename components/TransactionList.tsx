@@ -35,7 +35,7 @@ export function TransactionList() {
             }
 
             
-            const amount = tx?.meta?.preTokenBalances?.reduce((total: number, balance: any) => {
+            const amount = tx?.meta?.preTokenBalances?.reduce((total: number, balance : any) => {
               if (balance.uiTokenAmount) {
                 return total + balance.uiTokenAmount.uiAmount
               }
