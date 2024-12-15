@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { format } from "date-fns";
 import { ArrowDownUp, CheckCircle2, XCircle } from "lucide-react";
 import { TransactionError } from "@solana/web3.js";
+import Link from "next/link";
 
 interface Transaction {
   id: string;
@@ -93,10 +94,7 @@ export function TransactionList() {
   return (
     <>
       <div className="space-y-6">
-        <h2 className="text-2xl font-bold text-blue-600 mb-4">
-          Recent Transactions
-        </h2>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 grid-cols-1">
           {loading ? (
             <div className="flex justify-center items-center py-12">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
@@ -104,51 +102,57 @@ export function TransactionList() {
           ) : (
             transactions.map((tx) => (
               <div key={tx.id}>
-                <div className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center space-x-3">
-                      <div className="p-2 bg-primary/10 rounded-full">
-                        <ArrowDownUp className="h-5 w-5 text-primary" />
+                <Link
+                  href={`https://solscan.io/tx/${tx.id}?cluster=devnet`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="bg-white border  hover:border-blue-500 rounded-lg p-6 shadow-md hover:shadow-lg transition-colors duration-100">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center space-x-3">
+                        <div className="p-2 bg-primary/10 rounded-full">
+                          <ArrowDownUp className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <p className="font-medium text-sm truncate text-gray-600 max-w-[200px]">
+                            {tx.id}
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            {format(
+                              (tx.blockTime ?? Date.now() / 1000) * 1000,
+                              "MMM dd, yyyy HH:mm:ss"
+                            )}
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <p className="font-medium text-sm truncate text-gray-600 max-w-[200px]">
-                          {tx.id}
-                        </p>
-                        <p className="text-xs text-gray-500">
-                          {format(
-                            (tx.blockTime ?? Date.now() / 1000) * 1000,
-                            "MMM dd, yyyy HH:mm:ss"
-                          )}
-                        </p>
+                      <div className="flex items-center space-x-2">
+                        <span className="text-sm font-semibold text-gray-900">
+                          {tx.amount} SOL
+                        </span>
+                        {tx.err ? (
+                          <XCircle className="h-5 w-5 text-red-500" />
+                        ) : (
+                          <CheckCircle2 className="h-5 w-5 text-green-500" />
+                        )}
                       </div>
                     </div>
-                    <div className="flex items-center space-x-2">
-                      <span className="text-sm font-semibold text-gray-900">
-                        {tx.amount} SOL
-                      </span>
-                      {tx.err ? (
-                        <XCircle className="h-5 w-5 text-red-500" />
-                      ) : (
-                        <CheckCircle2 className="h-5 w-5 text-green-500" />
-                      )}
-                    </div>
-                  </div>
 
-                  <>
-                    <div className="flex items-center text-sm">
-                      <span className="text-gray-500 w-16">From:</span>
-                      <span className="text-gray-700 truncate max-w-[200px] inline-block">
-                        {tx.from}
-                      </span>
-                    </div>
-                    <div className="flex items-center text-sm">
-                      <span className="text-gray-500 w-16">To:</span>
-                      <span className="text-gray-700 truncate max-w-[200px] inline-block">
-                        {tx.to}
-                      </span>
-                    </div>
-                  </>
-                </div>
+                    <>
+                      <div className="flex items-center text-sm">
+                        <span className="text-gray-500 w-16">From:</span>
+                        <span className="text-gray-700 truncate max-w-[200px] inline-block">
+                          {tx.from}
+                        </span>
+                      </div>
+                      <div className="flex items-center text-sm">
+                        <span className="text-gray-500 w-16">To:</span>
+                        <span className="text-gray-700 truncate max-w-[200px] inline-block">
+                          {tx.to}
+                        </span>
+                      </div>
+                    </>
+                  </div>
+                </Link>
               </div>
             ))
           )}
