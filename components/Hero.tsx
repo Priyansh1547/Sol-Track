@@ -1,10 +1,13 @@
 "use client";
 
-import { SecondaryButton } from "@/components/ButtonLanding";
+import { SecondaryButton } from "@/components/ui/button/ButtonLanding";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 export const Hero = () => {
   const router = useRouter();
+  const session = useSession();
+
   return (
     <>
       <div className="p-6 sm:p-12 md:p-16 lg:p-14">
@@ -19,9 +22,16 @@ export const Hero = () => {
           Connect your wallet and you are good to go
         </div>
         <div className="pt-8 flex justify-center">
-          <SecondaryButton onClick={() => router.push("/dashboard")}>
-            Go to Dashboard
-          </SecondaryButton>
+          {session.data?.user && (
+            <SecondaryButton onClick={() => router.push("/dashboard")}>
+              Go to Dashboard
+            </SecondaryButton>
+          )}
+          {!session.data?.user && (
+            <SecondaryButton onClick={() => router.push("/auth/login")}>
+              Login
+            </SecondaryButton>
+          )}
         </div>
       </div>
     </>
