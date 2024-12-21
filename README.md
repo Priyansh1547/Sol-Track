@@ -2,6 +2,8 @@
 
 Sol-Track is a web app that allows you to view your transactions in a simple and easy to use dashboard.
 
+## Note : Currently we only support Solana Devnet
+
 ## Features
 
 - View your transactions in a simple and easy to use dashboard
