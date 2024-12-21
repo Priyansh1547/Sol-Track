@@ -1,26 +1,36 @@
-import { PrimaryButton } from "@/components/ui/button/ButtonLanding";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
+import { Button } from "./ui/button/Button";
 export const AppBar = () => {
   const router = useRouter();
   const session = useSession();
   return (
     <>
-      <div className="flex justify-between items-center border-b-2 border-gray-200 py-2 px-6 sm:px-12 md:px-16 lg:px-24">
+      <div className="flex justify-between items-center py-6 px-6 sm:px-12 md:px-16 lg:px-24">
         <div className="flex items-center">
-          <span className="text-2xl font-medium text-gray-800">
+          <span className="text-2xl text-white font-semibold">
             <Link href={"/"}>Sol-Track</Link>
           </span>
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 dark">
           {session.data?.user && (
-            <PrimaryButton onClick={() => signOut()}>Logout</PrimaryButton>
+            <Button
+              variant="default"
+              className="bg-blue-400 hover:bg-blue-400/80 rounded-3xl"
+              onClick={() => signOut()}
+            >
+              Logout
+            </Button>
           )}
           {!session.data?.user && (
-            <PrimaryButton onClick={() => router.push("/auth/login")}>
+            <Button
+              variant="default"
+              className="bg-blue-400 hover:bg-blue-400/80 rounded-3xl"
+              onClick={() => router.push("/auth/login")}
+            >
               Login
-            </PrimaryButton>
+            </Button>
           )}
         </div>
       </div>
