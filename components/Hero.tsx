@@ -13,7 +13,7 @@ export const Hero = () => {
   return (
     <>
       <main>
-        <section className="py-20 px-8">
+        <section className="md:py-24 py-14 md:px-12 px-6 lg:px-24 dark">
           <div className="text-white dark max-w-8xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
               <h1 className="text-4xl font-bold mb-8 md:text-5xl text-white">

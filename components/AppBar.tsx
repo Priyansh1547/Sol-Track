@@ -2,17 +2,21 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
 import { Button } from "./ui/button/Button";
+import Image from "next/image";
+import Logo from "@/public/Sol-track-logo.png";
+
 export const AppBar = () => {
   const router = useRouter();
   const session = useSession();
   return (
     <>
       <div className="flex justify-between items-center py-6 px-6 sm:px-12 md:px-16 lg:px-24">
-        <div className="flex items-center">
-          <span className="text-2xl text-white font-semibold">
-            <Link href={"/"}>Sol-Track</Link>
-          </span>
-        </div>
+        <Link href={"/"}>
+          <div className="flex items-center">
+            <Image src={Logo} alt="logo" width={40} height={40} />
+            <span className="text-xl text-white font-bold">Sol-Track</span>
+          </div>
+        </Link>
         <div className="flex items-center space-x-4 dark">
           {session.data?.user && (
             <Button
