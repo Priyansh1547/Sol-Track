@@ -10,7 +10,7 @@ import { PublicKey } from "@solana/web3.js";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { DashboardNavbar } from "@/components/DashboardNavbar";
+import { AppBar } from "@/components/AppBar";
 
 type Tab = "transaction" | "airdrop";
 
@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <>
       <div>
-        <DashboardNavbar />
+        <AppBar isDashboard={true} />
       </div>
       <div className="pt-8 flex justify-center">
         <div className="max-w-4xl bg-white rounded-lg border border-primary/20 shadow-md w-full">

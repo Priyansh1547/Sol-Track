@@ -9,7 +9,7 @@ export default function Home() {
       <main className="bg-[#0F172A]">
         <div>
           <header>
-            <AppBar />
+            <AppBar isDashboard={false} />
           </header>
         </div>
         <AnimationContainer duration={0.6}>
