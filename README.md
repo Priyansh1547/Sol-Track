@@ -15,8 +15,7 @@ Sol-Track is a web app that allows you to view your transactions in a simple and
 
 ## Images
 
-![image](https://github.com/user-attachments/assets/9a4692e0-3adc-4e3d-9778-413f26bac5e0)
-
+![Sol-track-dashboard](https://github.com/user-attachments/assets/f4da2198-34a9-4cb9-b599-7cfa4ddc1e9d)
 
 ## Getting Started
 
