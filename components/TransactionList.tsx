@@ -107,14 +107,14 @@ export function TransactionList() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <div className="bg-white border  hover:border-blue-500 rounded-lg p-6 shadow-md hover:shadow-lg transition-colors duration-100">
+                  <div className="bg-[#14151B] border hover:border-blue-500 rounded-lg p-6 shadow-md hover:shadow-lg transition-colors duration-100 dark">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center space-x-3">
                         <div className="p-2 bg-primary/10 rounded-full">
                           <ArrowDownUp className="h-5 w-5 text-primary" />
                         </div>
                         <div>
-                          <p className="font-medium text-sm truncate text-gray-600 max-w-[200px]">
+                          <p className="font-medium text-sm truncate text-gray-400 max-w-[200px] dark">
                             {tx.id}
                           </p>
                           <p className="text-xs text-gray-500">
@@ -126,7 +126,7 @@ export function TransactionList() {
                         </div>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <span className="text-sm font-semibold text-gray-900">
+                        <span className="text-sm font-semibold text-gray-300">
                           {tx.amount} SOL
                         </span>
                         {tx.err ? (

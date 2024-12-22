@@ -13,31 +13,20 @@ export const AppBar = ({ isDashboard }: { isDashboard: boolean }) => {
     <>
       <div
         className={cn(
-          "flex justify-between items-center py-2 px-6 sm:px-12 md:px-16 lg:px-24",
-          { "border-b-2 border-gray-200": isDashboard }
+          "flex justify-between items-center py-2 px-6 sm:px-12 md:px-16 lg:px-24 bg-[#0F172A]",
+          isDashboard && "bg-[#0E0F14]"
         )}
       >
         <Link href={"/"}>
           <div className="flex items-center">
             <Image src={Logo} alt="logo" width={40} height={40} />
-            <span
-              className={cn("text-xl text-white font-bold", {
-                "text-black": isDashboard,
-              })}
-            >
-              Sol-Track
-            </span>
+            <span className="text-xl text-white font-bold">Sol-Track</span>
           </div>
         </Link>
-        <div
-          className={cn("flex items-center space-x-4", !isDashboard && "dark")}
-        >
+        <div className="flex items-center space-x-4 dark">
           {session.data?.user && (
             <Button
-              variant="default"
-              className={cn(
-                !isDashboard && "rounded-2xl bg-blue-400 hover:bg-blue-400/80 "
-              )}
+              variant={isDashboard ? "greenButton" : "blueButton"}
               onClick={() => signOut()}
             >
               Logout
@@ -45,8 +34,7 @@ export const AppBar = ({ isDashboard }: { isDashboard: boolean }) => {
           )}
           {!session.data?.user && (
             <Button
-              variant="default"
-              className="bg-blue-400 hover:bg-blue-400/80 rounded-3xl"
+              variant={isDashboard ? "blueButton" : "greenButton"}
               onClick={() => router.push("/auth/login")}
             >
               Login

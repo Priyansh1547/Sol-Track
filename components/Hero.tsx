@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { Button } from "./ui/button/Button";
 import Image from "next/image";
-import solImage from "@/public/sol-track.png";
+import solImage from "@/public/Sol-track-dashboard.png";
 
 export const Hero = () => {
   const router = useRouter();
@@ -46,7 +46,7 @@ export const Hero = () => {
               <Image
                 src={solImage}
                 alt="sol-track"
-                className="w-full rounded-xl border-4 border-[24252A] object-cover size-full"
+                className="w-full rounded-xl border-2 border-[24252A] object-cover size-full"
               />
             </div>
           </div>

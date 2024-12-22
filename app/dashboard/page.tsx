@@ -33,43 +33,45 @@ export default function Home() {
   }, [session, router]);
   return (
     <>
-      <div>
-        <AppBar isDashboard={true} />
-      </div>
-      <div className="pt-8 flex justify-center">
-        <div className="max-w-4xl bg-white rounded-lg border border-primary/20 shadow-md w-full">
-          <Greeting
-            name={session.data?.user?.name ?? "SOL"}
-            image={session.data?.user?.image ?? ""}
-          />
-          <div className="w-full flex px-10">
-            {tabs.map((tab) => (
-              <TabButton
-                key={tab.id}
-                active={tab.id === selectedTab}
-                onClick={() => {
-                  setSelectedTab(tab.id);
-                }}
-              >
-                {tab.name}
-              </TabButton>
-            ))}
-          </div>
+      <main className="bg-[#0E0F14] min-h-screen ">
+        <div className="sticky top-0">
+          <AppBar isDashboard={true} />
+        </div>
+        <div className="pt-8 flex justify-center">
+          <div className="max-w-4xl bg-[#14151B] rounded-lg text-white shadow-md w-full">
+            <Greeting
+              name={session.data?.user?.name ?? "SOL"}
+              image={session.data?.user?.image ?? ""}
+            />
+            <div className="w-full flex px-10">
+              {tabs.map((tab) => (
+                <TabButton
+                  key={tab.id}
+                  active={tab.id === selectedTab}
+                  onClick={() => {
+                    setSelectedTab(tab.id);
+                  }}
+                >
+                  {tab.name}
+                </TabButton>
+              ))}
+            </div>
 
-          <div
-            className={`${
-              selectedTab === "transaction" ? "visible" : "hidden"
-            }`}
-          >
-            <Transaction publicKey={publicKey} />
-          </div>
-          <div
-            className={`${selectedTab === "airdrop" ? "visible" : "hidden"}`}
-          >
-            <Airdrop />
+            <div
+              className={`${
+                selectedTab === "transaction" ? "visible" : "hidden"
+              }`}
+            >
+              <Transaction publicKey={publicKey} />
+            </div>
+            <div
+              className={`${selectedTab === "airdrop" ? "visible" : "hidden"}`}
+            >
+              <Airdrop />
+            </div>
           </div>
         </div>
-      </div>
+      </main>
     </>
   );
 }

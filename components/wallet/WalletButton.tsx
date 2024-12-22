@@ -3,7 +3,7 @@
 import { useWalletModal } from "@solana/wallet-adapter-react-ui";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { Wallet } from "lucide-react";
-
+import { Button } from "@/components/ui/button/Button";
 export function WalletButton() {
   const { setVisible } = useWalletModal();
   const { wallet, disconnect, publicKey } = useWallet();
@@ -17,14 +17,15 @@ export function WalletButton() {
   };
 
   return (
-    <button
+    <Button
       onClick={handleClick}
-      className="flex items-center space-x-2 bg-primary text-primary-foreground duration-300 hover:bg-primary/90 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg  px-5 py-2.5 text-white"
+      variant={"blueButton"}
+      className="space-x-2 px-5 py-2.5"
     >
       <Wallet className="h-5 w-5" />
-      <span className="truncate h-6 w-32">
+      <span className="truncate w-32 text-center">
         {publicKey ? publicKey.toString() : "Connect Wallet"}
       </span>
-    </button>
+    </Button>
   );
 }

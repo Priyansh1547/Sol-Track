@@ -6,14 +6,14 @@ import { AnimationContainer } from "@/components/global/animation-container";
 export default function Home() {
   return (
     <>
-      <main className="bg-[#0F172A]">
+      <main className="bg-[#0F172A] min-h-screen">
         <div>
           <header>
             <AppBar isDashboard={false} />
           </header>
         </div>
         <AnimationContainer duration={0.6}>
-          <div className="flex min-h-screen flex-col items-center justify-between p-24">
+          <div className="text-center mt-10 lg:mt-4 flex flex-col md:flex-row">
             <Hero />
           </div>
         </AnimationContainer>
