@@ -107,7 +107,7 @@ export function TransactionList() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <div className="bg-[#14151B] border hover:border-blue-500 rounded-lg p-6 shadow-md hover:shadow-lg transition-colors duration-100 dark">
+                  <div className="bg-[#14151B] border hover:border-accentBlue rounded-lg p-6 shadow-md hover:shadow-lg transition-colors duration-100 dark">
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center space-x-3">
                         <div className="p-2 bg-primary/10 rounded-full">
@@ -140,13 +140,13 @@ export function TransactionList() {
                     <>
                       <div className="flex items-center text-sm">
                         <span className="text-gray-500 w-16">From:</span>
-                        <span className="text-gray-700 truncate max-w-[200px] inline-block">
+                        <span className="text-gray-500 truncate max-w-[200px] inline-block">
                           {tx.from}
                         </span>
                       </div>
                       <div className="flex items-center text-sm">
                         <span className="text-gray-500 w-16">To:</span>
-                        <span className="text-gray-700 truncate max-w-[200px] inline-block">
+                        <span className="text-gray-500 truncate max-w-[200px] inline-block">
                           {tx.to}
                         </span>
                       </div>
