@@ -1,4 +1,4 @@
-name: PR Lint Check
+name: PR Lint Check and Build Check
 
 on:
   pull_request:
@@ -19,7 +19,10 @@ jobs:
           node-version: "18.18"
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Run linting
         run: npm run lint
+
+      - name: Build the project
+        run: npm run build
