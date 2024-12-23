@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
-import { Button } from "./ui/button/Button";
+import { Button } from "../ui/button/Button";
 import Image from "next/image";
 import Logo from "@/public/Sol-track-logo.png";
 import { cn } from "@/lib/utils";

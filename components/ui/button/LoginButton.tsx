@@ -3,8 +3,23 @@ import { RiGoogleFill } from "@remixicon/react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { cn } from "@/lib/utils";
 
-export function LoginButton() {
+interface LoginButtonProps {
+  className?: string;
+  variant?:
+    | "default"
+    | "link"
+    | "destructive"
+    | "outline"
+    | "secondary"
+    | "ghost"
+    | "blueGhost"
+    | "greenButton"
+    | "blueButton";
+}
+
+export function LoginButton({ className, variant }: LoginButtonProps) {
   const session = useSession();
   const router = useRouter();
   useEffect(() => {
@@ -15,9 +30,13 @@ export function LoginButton() {
 
   return (
     <div className="flex flex-col gap-2">
-      <Button variant="outline" onClick={() => signIn("google")}>
+      <Button
+        variant={variant}
+        onClick={() => signIn("google")}
+        className={cn(className)}
+      >
         <RiGoogleFill
-          className="me-3 text-[#000000] dark:text-white/60"
+          className="me-3 text-[#000000]"
           size={16}
           aria-hidden="true"
         />

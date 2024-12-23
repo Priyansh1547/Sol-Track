@@ -12,6 +12,9 @@ export default {
   		colors: {
 			greenText: "#00C278",
 			accentBlue: "#478BF9",
+			inputBaground : "#0E0F14",
+			inputText: "#F4E6D9",
+			placeholderText: "#6F768A",
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

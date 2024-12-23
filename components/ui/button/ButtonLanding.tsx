@@ -14,8 +14,8 @@ export const TabButton = ({
   return (
     <Button
       type="button"
-      variant={active ? "secondary" : "ghost"}
-      className="w-full dark text-sm px-5 py-2.5 me-2 mb-2"
+      variant={active ? "blueButton" : "blueGhost"}
+      className="w-full rounded-xl dark text-sm px-5 py-2.5 me-2 mb-2"
       onClick={onClick}
     >
       {children}

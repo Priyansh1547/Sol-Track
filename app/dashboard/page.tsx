@@ -2,20 +2,19 @@
 
 import { useWallet } from "@solana/wallet-adapter-react";
 import { TransactionList } from "@/components/TransactionList";
-import { WalletButton } from "@/components/wallet/WalletButton";
 import { EmptyState } from "@/components/wallet/EmptyState";
 import { useEffect, useState } from "react";
 import { TabButton } from "@/components/ui/button/ButtonLanding";
 import { PublicKey } from "@solana/web3.js";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
-import { AppBar } from "@/components/AppBar";
+import { NavBar } from "@/components/navbar/NavBar";
 
-type Tab = "transaction" | "airdrop";
+type Tab = "transaction" | "airdrop" | "balance";
 
 const tabs: { id: Tab; name: string }[] = [
   { id: "transaction", name: "Transaction" },
+  { id: "balance", name: "Balance" },
   { id: "airdrop", name: "Airdrop" },
 ];
 
@@ -35,15 +34,11 @@ export default function Home() {
     <>
       <main className="bg-[#0E0F14] min-h-screen ">
         <div className="sticky top-0">
-          <AppBar isDashboard={true} />
+          <NavBar />
         </div>
         <div className="pt-8 flex justify-center">
-          <div className="max-w-4xl bg-[#14151B] rounded-lg text-white shadow-md w-full">
-            <Greeting
-              name={session.data?.user?.name ?? "SOL"}
-              image={session.data?.user?.image ?? ""}
-            />
-            <div className="w-full flex px-10">
+          <div className="max-w-4xl rounded-lg text-white shadow-md w-full">
+            <div className="w-full flex px-10 pt-10">
               {tabs.map((tab) => (
                 <TabButton
                   key={tab.id}
@@ -65,36 +60,18 @@ export default function Home() {
               <Transaction publicKey={publicKey} />
             </div>
             <div
-              className={`${selectedTab === "airdrop" ? "visible" : "hidden"}`}
+              className={`${
+                selectedTab === "airdrop" || selectedTab === "balance"
+                  ? "visible"
+                  : "hidden"
+              }`}
             >
-              <Airdrop />
+              <CommingSoon />
             </div>
           </div>
         </div>
       </main>
     </>
-  );
-}
-
-function Greeting({ name, image }: { name: string; image: string }) {
-  return (
-    <div className="flex justify-between items-center p-12">
-      <div className="flex items-center">
-        <Image
-          src={image}
-          alt="Profile"
-          className="rounded-full w-14 h-14 mr-4"
-          width={100}
-          height={100}
-        />
-        <div className="text-lg md:text-2xl lg:text-3xl sm:text-xl font-semibold">
-          Welcome back,<span className="text-blue-500 pl-2">{name}</span>
-        </div>
-      </div>
-      <div>
-        <WalletButton />
-      </div>
-    </div>
   );
 }
 
@@ -116,12 +93,12 @@ function Transaction({ publicKey }: { publicKey: PublicKey | null }) {
   );
 }
 
-function Airdrop() {
+function CommingSoon() {
   return (
     <div className="flex flex-col items-center justify-center h-[40vh] space-y-4">
       <h2 className="text-2xl font-bold text-center">Coming Soon</h2>
       <p className="text-gray-600 text-center max-w-md">
-        We are working hard to bring AirDrop
+        We are working hard to bring this feature
       </p>
     </div>
   );

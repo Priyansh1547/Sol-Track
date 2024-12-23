@@ -1,5 +1,5 @@
 "use client";
-import { AppBar } from "@/components/AppBar";
+import { AppBar } from "@/components/navbar/AppBar";
 import { Hero } from "@/components/Hero";
 import { AnimationContainer } from "@/components/global/animation-container";
 
