@@ -16,12 +16,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { WalletButton } from "../wallet/WalletButton";
-import { useWallet } from "@solana/wallet-adapter-react";
 
 export const NavBar = () => {
   const router = useRouter();
   const session = useSession();
-  const { publicKey } = useWallet();
+
   return (
     <>
       <div
