@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { Button } from "./ui/button/Button";
 import Image from "next/image";
-import solImage from "@/public/Sol-track-dashboard.png";
+import solImage from "@/public/SolTrack-dashboard.png";
 
 export const Hero = () => {
   const router = useRouter();
