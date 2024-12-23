@@ -13,7 +13,7 @@ export default function Home() {
           </header>
         </div>
         <AnimationContainer duration={0.6}>
-          <div className="text-center mt-10 lg:mt-4 flex flex-col md:flex-row">
+          <div className="text-center mt-10 lg:mt-4 flex flex-col">
             <Hero />
           </div>
         </AnimationContainer>
