@@ -8,7 +8,9 @@ on:
   workflow_run:
     workflows: ["CI Workflow"]
     types:
-      - completed
+      - success
+    branches:
+      - main
 
 jobs:
   deploy-production:
