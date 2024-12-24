@@ -3,7 +3,7 @@
 - 1
 - 2
 
-Resolves #[Issue Number if there]
+Fix #[Issue Number if there]
 
 ### Checklist before requesting a review
 
