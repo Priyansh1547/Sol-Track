@@ -52,8 +52,8 @@ export function TransactionList() {
               tx?.meta?.preBalances.length && tx?.meta?.postBalances.length
                 ? tx.transaction.message.accountKeys[0].toBase58() ===
                   publicKey.toBase58()
-                  ? (tx.meta.preBalances[0] - tx.meta.postBalances[0]) / 1e9 // Outgoing
-                  : (tx.meta.postBalances[1] - tx.meta.preBalances[1]) / 1e9 // Incoming
+                  ? (tx.meta.preBalances[0] - tx.meta.postBalances[0]) / 1e9
+                  : (tx.meta.postBalances[1] - tx.meta.preBalances[1]) / 1e9
                 : 0;
 
             const formattedAmount = Math.abs(amount).toString();

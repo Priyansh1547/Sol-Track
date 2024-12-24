@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
-import { Settings, LogOut } from "lucide-react";
+import { User, LogOut } from "lucide-react";
 import Image from "next/image";
 import Logo from "@/public/Sol-track-logo.png";
 import { AvatarFallback, AvatarImage, Avatar } from "@/components/ui/avatar";
@@ -53,10 +53,10 @@ export const NavBar = () => {
               <DropdownMenuSeparator />
               <DropdownMenuGroup>
                 <DropdownMenuItem
-                  onClick={() => router.push("/dashboard/settings")}
+                  onClick={() => router.push("/dashboard/profile")}
                 >
-                  <Settings />
-                  <span>Settings</span>
+                  <User />
+                  <span>Profile</span>
                 </DropdownMenuItem>
               </DropdownMenuGroup>
               <DropdownMenuSeparator />

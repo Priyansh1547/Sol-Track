@@ -1,63 +1,22 @@
-"use client";
+import * as React from "react";
 
-import { Eye, EyeOff } from "lucide-react";
-import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { useEffect } from "react";
 
-export function Input({
-  className,
-  placeholder,
-  type,
-}: React.InputHTMLAttributes<HTMLInputElement>) {
-  const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [isPassword, setIsPassword] = useState<boolean>(false);
-  const toggleVisibility = () => setIsVisible((prevState) => !prevState);
+const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
+  ({ className, type, ...props }, ref) => {
+    return (
+      <input
+        type={type}
+        className={cn(
+          "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+          className
+        )}
+        ref={ref}
+        {...props}
+      />
+    );
+  }
+);
+Input.displayName = "Input";
 
-  useEffect(() => {
-    if (type === "password") {
-      setIsPassword(true);
-    }
-  }, [type]);
-
-  return (
-    <>
-      {!isPassword && (
-        <input
-          className={cn(
-            "h-12 rounded-xl border-2 border-solid bg-inputBaground px-4 text-base text-inputText placeholder-placeholderText outline-none ring-0 focus:ring-0 border-baseBorderLight focus:border-accentBlue w-full",
-            className
-          )}
-          placeholder={placeholder}
-          type={type}
-        />
-      )}
-      {isPassword && (
-        <div className="relative">
-          <input
-            className={cn(
-              "h-12 rounded-xl border-2 border-solid bg-inputBaground px-4 text-base text-inputText placeholder-placeholderText outline-none ring-0 focus:ring-0 border-baseBorderLight focus:border-accentBlue w-full",
-              className
-            )}
-            placeholder={placeholder}
-            type={isVisible ? "text" : "password"}
-          />
-          <button
-            className="absolute inset-y-0 end-0 flex h-full w-9 items-center justify-center rounded-e-lg text-placeholderText focus:outline-none focus:ring-0 ml-2"
-            type="button"
-            onClick={toggleVisibility}
-            aria-label={isVisible ? "Hide password" : "Show password"}
-            aria-pressed={isVisible}
-            aria-controls="password"
-          >
-            {isVisible ? (
-              <EyeOff size={18} strokeWidth={2} aria-hidden="true" />
-            ) : (
-              <Eye size={18} strokeWidth={2} aria-hidden="true" />
-            )}
-          </button>
-        </div>
-      )}
-    </>
-  );
-}
+export { Input };
