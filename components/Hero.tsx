@@ -19,7 +19,7 @@ export const Hero = () => {
               <h1 className="text-4xl font-bold tracking-tighter text-white sm:text-5xl xl:text-6xl/none">
                 The All-in-One
                 <br />
-                Crypto App
+                Crypto Tracker
               </h1>
               <div className="mt-8">
                 <Button
