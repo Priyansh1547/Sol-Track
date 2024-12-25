@@ -25,10 +25,12 @@ export const Hero = () => {
                 <Button
                   className="h-12 px-8 text-base dark"
                   onClick={() =>
-                    router.push(session ? "/dashboard" : "/auth/login")
+                    router.push(
+                      session.data?.user ? "/dashboard" : "/auth/login"
+                    )
                   }
                 >
-                  {session ? "Go to Dashboard" : "Login"}
+                  {session.data?.user ? "Dashboard" : "Login"}
                 </Button>
               </div>
             </div>
