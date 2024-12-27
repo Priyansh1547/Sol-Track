@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useSession, signOut } from "next-auth/react";
 import { Button } from "../ui/button/Button";
 import Image from "next/image";
 import Logo from "@/public/Sol-track-logo.png";
@@ -8,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 export const AppBar = ({ isDashboard }: { isDashboard: boolean }) => {
   const router = useRouter();
-  const session = useSession();
+
   return (
     <>
       <div
@@ -24,22 +23,14 @@ export const AppBar = ({ isDashboard }: { isDashboard: boolean }) => {
           </div>
         </Link>
         <div className="flex items-center space-x-4 dark">
-          {session.data?.user && (
-            <Button
-              variant={isDashboard ? "greenButton" : "blueButton"}
-              onClick={() => signOut()}
-            >
-              Logout
-            </Button>
-          )}
-          {!session.data?.user && (
-            <Button
-              variant={isDashboard ? "blueButton" : "greenButton"}
-              onClick={() => router.push("/auth/login")}
-            >
-              Login
-            </Button>
-          )}
+          <Button
+            variant={"greenButton"}
+            onClick={() => {
+              isDashboard ? router.push("/dashboard") : null;
+            }}
+          >
+            Dashboard
+          </Button>
         </div>
       </div>
     </>
