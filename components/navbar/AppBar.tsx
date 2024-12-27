@@ -3,19 +3,13 @@ import { useRouter } from "next/navigation";
 import { Button } from "../ui/button/Button";
 import Image from "next/image";
 import Logo from "@/public/Sol-track-logo.png";
-import { cn } from "@/lib/utils";
 
-export const AppBar = ({ isDashboard }: { isDashboard: boolean }) => {
+export const AppBar = () => {
   const router = useRouter();
 
   return (
     <>
-      <div
-        className={cn(
-          "flex justify-between items-center py-2 px-6 sm:px-12 md:px-16 lg:px-24 bg-[#0F172A]",
-          isDashboard && "bg-[#0E0F14]"
-        )}
-      >
+      <div className="flex justify-between items-center py-2 px-6 sm:px-12 md:px-16 lg:px-24 bg-[#0F172A]">
         <Link href={"/"}>
           <div className="flex items-center">
             <Image src={Logo} alt="logo" width={40} height={40} />
@@ -26,7 +20,7 @@ export const AppBar = ({ isDashboard }: { isDashboard: boolean }) => {
           <Button
             variant={"greenButton"}
             onClick={() => {
-              isDashboard ? router.push("/dashboard") : null;
+              router.push("/dashboard");
             }}
           >
             Dashboard
