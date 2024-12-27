@@ -28,7 +28,7 @@ export const Hero = () => {
                 </Button>
               </div>
             </div>
-            <div className="flex-1">
+            <div className="w-[70%] md:w-1/2">
               <div className="relative aspect-[16/9] w-full max-w-xl overflow-hidden rounded-xl border-2 border-[#26272B] shadow-xl">
                 <Image
                   src={solImage}
