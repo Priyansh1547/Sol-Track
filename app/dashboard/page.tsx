@@ -3,11 +3,9 @@
 import { useWallet } from "@solana/wallet-adapter-react";
 import { TransactionList } from "@/components/TransactionList";
 import { EmptyState } from "@/components/wallet/EmptyState";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { TabButton } from "@/components/ui/button/ButtonLanding";
 import { PublicKey } from "@solana/web3.js";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import { NavBar } from "@/components/navbar/NavBar";
 
 type Tab = "transaction" | "airdrop" | "balance";
@@ -21,15 +19,7 @@ const tabs: { id: Tab; name: string }[] = [
 export default function Home() {
   const [selectedTab, setSelectedTab] = useState<Tab>("transaction");
   const { publicKey } = useWallet();
-  const session = useSession();
-  const router = useRouter();
 
-  useEffect(() => {
-    if (!session.data?.user) {
-      router.push("/");
-    }
-    console.log(session);
-  }, [session, router]);
   return (
     <>
       <main className="bg-[#0E0F14] min-h-screen ">

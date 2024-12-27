@@ -9,7 +9,6 @@ import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
 import { PhantomWalletAdapter } from "@solana/wallet-adapter-wallets";
 import { clusterApiUrl } from "@solana/web3.js";
 import { useMemo } from "react";
-import { SessionProvider } from "next-auth/react";
 import "@solana/wallet-adapter-react-ui/styles.css";
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -21,9 +20,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ConnectionProvider endpoint={endpoint}>
       <WalletProvider wallets={wallets} autoConnect>
-        <WalletModalProvider>
-          <SessionProvider>{children} </SessionProvider>
-        </WalletModalProvider>
+        <WalletModalProvider>{children}</WalletModalProvider>
       </WalletProvider>
     </ConnectionProvider>
   );

@@ -9,7 +9,7 @@ export default function Home() {
       <main className="bg-[#0F172A] min-h-screen">
         <div>
           <header>
-            <AppBar isDashboard={false} />
+            <AppBar />
           </header>
         </div>
         <AnimationContainer duration={0.6}>

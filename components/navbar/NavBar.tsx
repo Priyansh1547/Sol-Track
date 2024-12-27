@@ -1,26 +1,10 @@
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useSession, signOut } from "next-auth/react";
-import { User, LogOut } from "lucide-react";
 import Image from "next/image";
 import Logo from "@/public/Sol-track-logo.png";
-import { AvatarFallback, AvatarImage, Avatar } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { WalletButton } from "../wallet/WalletButton";
 
 export const NavBar = () => {
-  const router = useRouter();
-  const session = useSession();
-
   return (
     <>
       <div
@@ -34,43 +18,8 @@ export const NavBar = () => {
             <span className="text-xl text-white font-bold">Sol-Track</span>
           </div>
         </Link>
-        <div className="flex items-center mr-[98px]">
+        <div className="flex items-center mr-[45px]">
           <WalletButton />
-        </div>
-        <div className="flex items-center space-x-4">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Avatar>
-                <AvatarImage
-                  src={session.data?.user?.image ?? ""}
-                  alt="@shadcn"
-                />
-                <AvatarFallback>CN</AvatarFallback>
-              </Avatar>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56 dark">
-              <DropdownMenuLabel>Profile</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuGroup>
-                <DropdownMenuItem
-                  onClick={() => router.push("/dashboard/profile")}
-                >
-                  <User />
-                  <span>Profile</span>
-                </DropdownMenuItem>
-              </DropdownMenuGroup>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem
-                onClick={() => {
-                  signOut();
-                  router.push("/");
-                }}
-              >
-                <LogOut />
-                <span>Logout</span>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
         </div>
       </div>
     </>

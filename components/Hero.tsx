@@ -1,14 +1,12 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
 import { Button } from "./ui/button/Button";
 import Image from "next/image";
 import solImage from "@/public/SolTrack-dashboard.png";
 
 export const Hero = () => {
   const router = useRouter();
-  const session = useSession();
 
   return (
     <>
@@ -24,13 +22,9 @@ export const Hero = () => {
               <div className="mt-8">
                 <Button
                   className="h-12 px-8 text-base dark"
-                  onClick={() =>
-                    router.push(
-                      session.data?.user ? "/dashboard" : "/auth/login"
-                    )
-                  }
+                  onClick={() => router.push("/dashboard")}
                 >
-                  {session.data?.user ? "Dashboard" : "Login"}
+                  Dashboard
                 </Button>
               </div>
             </div>
