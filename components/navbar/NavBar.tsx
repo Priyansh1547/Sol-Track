@@ -18,7 +18,7 @@ export const NavBar = () => {
             <span className="text-xl text-white font-bold">Sol-Track</span>
           </div>
         </Link>
-        <div className="flex items-center mr-[45px]">
+        <div className="flex items-center">
           <WalletButton />
         </div>
       </div>
