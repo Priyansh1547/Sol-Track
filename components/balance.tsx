@@ -8,6 +8,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
+  DrawerDescription,
 } from "@/components/ui/drawer";
 import { Web3Input } from "./ui/input";
 import { useEffect, useState } from "react";
@@ -81,7 +82,10 @@ const TransactionButton = ({ isSend }: { isSend: boolean }) => {
             </DrawerClose>
             <DrawerTitle>{isSend ? "Send" : "Deposit"}</DrawerTitle>
           </DrawerHeader>
-
+          <DrawerDescription className="flex justify-center items-center gap-1">
+            <span className="text-red-500">Note:</span>
+            this is not working it is only ui
+          </DrawerDescription>
           {!isSend && (
             <div className="flex flex-col items-center justify-center p-8 mt-52 space-y-6">
               <div className="max-w-sm text-center">
