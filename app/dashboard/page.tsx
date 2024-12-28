@@ -7,6 +7,7 @@ import { useState } from "react";
 import { TabButton } from "@/components/ui/button/ButtonLanding";
 import { PublicKey } from "@solana/web3.js";
 import { NavBar } from "@/components/navbar/NavBar";
+import { Balance } from "@/components/balance";
 
 type Tab = "transaction" | "airdrop" | "balance";
 
@@ -50,13 +51,14 @@ export default function Home() {
               <Transaction publicKey={publicKey} />
             </div>
             <div
-              className={`${
-                selectedTab === "airdrop" || selectedTab === "balance"
-                  ? "visible"
-                  : "hidden"
-              }`}
+              className={`${selectedTab === "airdrop" ? "visible" : "hidden"}`}
             >
               <CommingSoon />
+            </div>
+            <div
+              className={`${selectedTab === "balance" ? "visible" : "hidden"}`}
+            >
+              <Balance />
             </div>
           </div>
         </div>

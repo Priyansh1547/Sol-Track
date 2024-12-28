@@ -19,4 +19,23 @@ const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
 );
 Input.displayName = "Input";
 
+export function Web3Input({
+  className,
+  placeholder,
+  type,
+}: React.InputHTMLAttributes<HTMLInputElement>) {
+  return (
+    <>
+      <input
+        className={cn(
+          "h-12 rounded-xl border-2 border-solid bg-inputBaground px-4 text-base text-inputText placeholder-placeholderText outline-none ring-0 focus:ring-0 border-baseBorderLight focus:border-accentBlue w-full",
+          className
+        )}
+        placeholder={placeholder}
+        type={type}
+      />
+    </>
+  );
+}
+
 export { Input };
