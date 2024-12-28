@@ -14,7 +14,7 @@ import { useEffect, useState } from "react";
 import { useWallet } from "@solana/wallet-adapter-react";
 
 export function Balance() {
-  const [balance, setBalance] = useState("$1,850.20");
+  const balance ="$1,850.20";
   return (
     <div className="mx-auto px-4 py-12 flex flex-col items-center space-y-6">
       <div className="text-center">
