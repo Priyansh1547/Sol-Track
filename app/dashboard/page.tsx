@@ -8,12 +8,14 @@ import { TabButton } from "@/components/ui/button/ButtonLanding";
 import { PublicKey } from "@solana/web3.js";
 import { NavBar } from "@/components/navbar/NavBar";
 import { Balance } from "@/components/balance";
+import { SendSol } from "@/components/sendsol";
 
-type Tab = "transaction" | "airdrop" | "balance";
+type Tab = "transaction" | "airdrop" | "balance" | "send sol";
 
 const tabs: { id: Tab; name: string }[] = [
   { id: "transaction", name: "Transaction" },
   { id: "balance", name: "Balance" },
+  { id: "send sol", name: "Send SOL" },
   { id: "airdrop", name: "Airdrop" },
 ];
 
@@ -51,14 +53,19 @@ export default function Home() {
               <Transaction publicKey={publicKey} />
             </div>
             <div
-              className={`${selectedTab === "airdrop" ? "visible" : "hidden"}`}
-            >
-              <CommingSoon />
-            </div>
-            <div
               className={`${selectedTab === "balance" ? "visible" : "hidden"}`}
             >
               <Balance />
+            </div>
+            <div
+              className={`${selectedTab === "send sol" ? "visible" : "hidden"}`}
+            >
+              <SendSol />
+            </div>
+            <div
+              className={`${selectedTab === "airdrop" ? "visible" : "hidden"}`}
+            >
+              <CommingSoon />
             </div>
           </div>
         </div>
