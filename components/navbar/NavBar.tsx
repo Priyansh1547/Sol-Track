@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Logo from "@/public/Sol-track-logo.png";
 import { cn } from "@/lib/utils";
-import { WalletButton } from "../wallet/WalletButton";
+import { ConnectWalletButton } from "../wallet/WalletButton";
 
 export const NavBar = () => {
   return (
@@ -19,7 +19,7 @@ export const NavBar = () => {
           </div>
         </Link>
         <div className="flex items-center">
-          <WalletButton />
+          <ConnectWalletButton />
         </div>
       </div>
     </>
