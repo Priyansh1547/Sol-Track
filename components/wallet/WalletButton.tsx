@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+"use client";
+import { useState } from "react";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { Button } from "../ui/button/Button";
 import { Wallet, X } from "lucide-react";
