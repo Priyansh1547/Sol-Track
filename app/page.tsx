@@ -6,7 +6,7 @@ import { AnimationContainer } from "@/components/global/animation-container";
 export default function Home() {
   return (
     <>
-      <main className="bg-[#0F172A] min-h-screen">
+      <main className="min-h-screen bg-secondary">
         <div>
           <header>
             <AppBar />

@@ -15,7 +15,7 @@ export const NavBar = () => {
         <Link href={"/"}>
           <div className="flex items-center">
             <Image src={Logo} alt="logo" width={40} height={40} />
-            <span className="text-xl text-white font-bold">Sol-Track</span>
+            <span className="text-xl text-white font-semibold">Sol-Track</span>
           </div>
         </Link>
         <div className="flex items-center">

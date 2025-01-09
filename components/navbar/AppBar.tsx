@@ -9,16 +9,17 @@ export const AppBar = () => {
 
   return (
     <>
-      <div className="flex justify-between items-center py-2 px-6 sm:px-12 md:px-16 lg:px-24 bg-[#0F172A]">
+      <div className="flex justify-between items-center py-2 px-6 sm:px-12 md:px-16 lg:px-24 bg-black">
         <Link href={"/"}>
           <div className="flex items-center">
             <Image src={Logo} alt="logo" width={40} height={40} />
-            <span className="text-xl text-white font-bold">Sol-Track</span>
+            <span className="text-xl text-white font-semibold">Sol-Track</span>
           </div>
         </Link>
-        <div className="flex items-center space-x-4 dark">
+        <div className="flex items-center space-x-4">
           <Button
-            variant={"greenButton"}
+            className="bg-gradient-to-r from-[#ff292df8] to-[#ff00d9fa]"
+            variant={"default"}
             onClick={() => {
               router.push("/dashboard");
             }}

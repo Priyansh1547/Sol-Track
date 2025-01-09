@@ -20,28 +20,30 @@ const tabs: { id: Tab; name: string }[] = [
 ];
 
 export default function Home() {
-  const [selectedTab, setSelectedTab] = useState<Tab>("transaction");
+  const [selectedTab, setSelectedTab] = useState<Tab>("balance");
   const { publicKey } = useWallet();
 
   return (
     <>
-      <main className="bg-[#0E0F14] min-h-screen ">
+      <main className="bg-secondary min-h-screen ">
         <div className="sticky top-0">
           <NavBar />
         </div>
         <div className="pt-8 flex justify-center">
-          <div className="max-w-4xl rounded-lg text-white shadow-md w-full">
-            <div className="w-full flex px-10 pt-10">
+          <div className="max-w-4xl text-white w-full">
+            <div className="w-full flex px-10 pt-10 justify-center items-center">
               {tabs.map((tab) => (
-                <TabButton
-                  key={tab.id}
-                  active={tab.id === selectedTab}
-                  onClick={() => {
-                    setSelectedTab(tab.id);
-                  }}
-                >
-                  {tab.name}
-                </TabButton>
+                <>
+                  <TabButton
+                    key={tab.id}
+                    active={tab.id === selectedTab}
+                    onClick={() => {
+                      setSelectedTab(tab.id);
+                    }}
+                  >
+                    {tab.name}
+                  </TabButton>
+                </>
               ))}
             </div>
 
