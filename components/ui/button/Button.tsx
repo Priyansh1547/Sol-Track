@@ -21,6 +21,8 @@ const buttonVariants = cva(
         blueGhost:
           "text-[#969FAF] hover:bg-accentBlue/[8%] hover:text-accentBlue/70",
         link: "text-primary underline-offset-4 hover:underline",
+        gradientButton:
+          "text-primary-foreground shadow-sm shadow-black/5 bg-gradient-to-r from-[#ff292df8] to-[#ff00d9fa]",
         greenButton:
           "text-nowrap rounded-lg bg-greenText/[16%] px-3 py-1.5 text-sm font-semibold text-greenText hover:opacity-90",
         blueButton:

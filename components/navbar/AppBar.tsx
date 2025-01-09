@@ -18,8 +18,7 @@ export const AppBar = () => {
         </Link>
         <div className="flex items-center space-x-4">
           <Button
-            className="bg-gradient-to-r from-[#ff292df8] to-[#ff00d9fa]"
-            variant={"default"}
+            variant={"gradientButton"}
             onClick={() => {
               router.push("/dashboard");
             }}

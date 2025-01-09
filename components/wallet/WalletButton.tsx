@@ -40,7 +40,7 @@ export const ConnectWalletButton = () => {
           className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.1 }}
         >
           <div className="bg-[#111314] p-6 rounded-lg shadow-md w-[90%] max-w-md">
             <div className="flex justify-between items-center mb-4">
