@@ -9,7 +9,7 @@ export const AppBar = () => {
 
   return (
     <>
-      <div className="flex justify-between items-center py-2 px-6 sm:px-12 md:px-16 lg:px-24 bg-black">
+      <div className="flex justify-between items-center py-2 px-6 sm:px-12 md:px-16 lg:px-24 border-b-2 border-[#25252A] backdrop-blur-0">
         <Link href={"/"}>
           <div className="flex items-center">
             <Image src={Logo} alt="logo" width={40} height={40} />

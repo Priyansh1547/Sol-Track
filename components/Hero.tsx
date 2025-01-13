@@ -11,33 +11,41 @@ export const Hero = () => {
   return (
     <>
       <main>
-        <section id="hero" className="relative min-h-[80vh] w-full px-4">
-          <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-12 py-16 md:flex-row md:py-24">
-            <div className="flex flex-1 flex-col items-center text-center md:items-start md:text-left">
-              <div className="flex flex-col gap-2 md:gap-4">
-                <h1 className="text-[28px] md:text-[40px] md:leading-[44px] font-bold text-text-primary tracking-tighter">
-                  Sol Track
-                </h1>
-                <p className="md:text-[20px] text-primary">
-                  The all-in-one platform to track your solana.
-                </p>
-              </div>
-              <div className="mt-8">
+        <section
+          id="hero"
+          className="relative min-h-[80vh] w-full px-4 text-white"
+        >
+          <div className="flex flex-col items-center">
+            <div className="max-w-4xl mx-auto px-4 pt-16 pb-24 text-center">
+              <h1 className="text-5xl font-medium tracking-tight mb-6">
+                The All in One
+                <br />
+                Solana Tracker
+              </h1>
+
+              <p className="text-xl text-gray-200 mb-4">
+                Track your Solana transactions
+                <br />
+                balances, and airdrops in one.
+              </p>
+              <div className="flex justify-center gap-4 mb-12">
                 <Button
-                  className="h-10 px-8 text-base bg-black"
+                  variant="ghost"
+                  className="rounded-2xl font-semibold text-black bg-[#F4F4F4] px-6"
                   onClick={() => router.push("/dashboard")}
                 >
                   Dashboard
                 </Button>
               </div>
             </div>
-            <div className="w-[70%] md:w-1/2">
-              <div className="relative aspect-[16/9] w-full max-w-xl overflow-hidden rounded-xl border-2 border-[#26272B] shadow-xl">
+            <div className="lg:pl-8 xl:pl-12">
+              <div className="rounded-2xl overflow-hidden border-4 border-[#25252A] relative">
                 <Image
                   src={solImage}
                   alt="Dashboard Preview"
-                  fill
                   className="object-cover"
+                  width={1000}
+                  height={1000}
                   priority
                 />
               </div>
@@ -48,3 +56,13 @@ export const Hero = () => {
     </>
   );
 };
+
+{
+  /* <Image
+src={solImage}
+alt="Dashboard Preview"
+fill
+className="object-cover"
+priority
+/> */
+}
